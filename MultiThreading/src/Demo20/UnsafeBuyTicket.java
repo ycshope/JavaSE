@@ -23,6 +23,7 @@ class BuyTicket implements Runnable{
     public void run() {
         while (flag){
             try {
+                Thread.sleep(100);
                 buy();
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -36,7 +37,6 @@ class BuyTicket implements Runnable{
             flag = false;
             return;
         }
-        Thread.sleep(100);
         System.out.println(Thread.currentThread().getName() + "买了第"+ ticket-- +"张票");
     }
 }
