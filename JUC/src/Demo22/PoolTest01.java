@@ -14,13 +14,13 @@ public class PoolTest01 {
         try {
             for (int i = 0; i < 100; i++) {
                 //使用了线程池之后,使用线程池来创建线程,重写Runnable
-                threadPool.execute(()->{
+                threadPool.execute(() -> {
                     System.out.println(Thread.currentThread().getName());
                 });
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             //线程池使用完要关闭
             threadPool.shutdown();
         }
