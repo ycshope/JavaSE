@@ -10,18 +10,18 @@ public class SemaphoreTest {
         Semaphore semaphore = new Semaphore(3);
 
         for (int i = 0; i < 10; i++) {
-            new Thread(()->{
+            new Thread(() -> {
                 try {
                     semaphore.acquire();    //获得车位
-                    System.out.println(Thread.currentThread().getName()+"枪到车位");
+                    System.out.println(Thread.currentThread().getName() + "枪到车位");
                     TimeUnit.SECONDS.sleep(1);
-                    System.out.println(Thread.currentThread().getName()+"离开车位");
+                    System.out.println(Thread.currentThread().getName() + "离开车位");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 } finally {
                     semaphore.release();    //释放车位
                 }
-            },String.valueOf(i)).start();
+            }, String.valueOf(i)).start();
         }
     }
 }
