@@ -15,6 +15,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class PoolTest02 {
     public static void main(String[] args) {
+
+        // 获取CPU的核数量
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
         // 自定义线程池,ThreadPoolExecutor
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 2,
